@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:04:02 by acarlott          #+#    #+#             */
-/*   Updated: 2023/06/12 21:01:37 by acarlott         ###   ########lyon.fr   */
+/*   Updated: 2023/08/01 11:32:15 by acarlott         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,12 @@ int				death_time_check(t_philo *philo);
 int				death_check(t_philo *philo);
 int				wait_fork(t_philo *philo, int fork);
 void			unlock_fork(t_philo *philo, int fork);
-int				philosopher(t_data *data);
+void			philosopher(t_data *data);
 int				main(int argc, char **argv);
 void			ft_print(t_philo *philo, int msg);
 int				ft_sleep(t_philo *philo, int time);
 void			death_checker(t_data *d, t_philo *p);
 int				parse(t_data *data, int argc, char **argv);
+void			ft_odd_philo_manager(t_philo *philo);
 
 #endif

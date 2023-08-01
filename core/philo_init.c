@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:23:45 by acarlott          #+#    #+#             */
-/*   Updated: 2023/06/12 19:09:01 by acarlott         ###   ########lyon.fr   */
+/*   Updated: 2023/07/28 17:53:05 by acarlott         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,11 @@ static int	init_mutex(t_data *data)
 
 	i = -1;
 	while (++i < data->nb_th)
-	{
-		data->philo[i].t_last_eat = 0;
-		data->philo[i].nb_eat = 0;
 		if (pthread_mutex_init(&(data->fork[i]), NULL) != 0)
 			return (FALSE);
-	}
 	if (pthread_mutex_init(&(data->exec), NULL) != 0)
 		return (FALSE);
 	if (pthread_mutex_init(&(data->die), NULL) != 0)
-		return (FALSE);
-	if (pthread_mutex_init(&(data->write), NULL) != 0)
 		return (FALSE);
 	return (TRUE);
 }
@@ -76,9 +70,11 @@ int	init_philo(t_data *data)
 	while (++i < data->nb_th)
 	{
 		data->locked[i] = 0;
+		data->philo[i].nb_eat = 0;
 		data->philo[i].id = i + 1;
 		data->philo[i].data = data;
 		data->philo[i].fork_l_id = i;
+		data->philo[i].t_last_eat = 0;
 		data->philo[i].fork_r_id = (i + 1) % data->nb_th;
 //		printf("thread %d has fork %d at is right\n", data->philo[i].id ,data->philo[i].fork_r_id);
 //		printf("thread %d has fork %d at is left\n", data->philo[i].id ,data->philo[i].fork_l_id);

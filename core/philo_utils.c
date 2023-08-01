@@ -6,11 +6,28 @@
 /*   By: acarlott <acarlott@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 14:29:40 by acarlott          #+#    #+#             */
-/*   Updated: 2023/06/12 20:47:25 by acarlott         ###   ########lyon.fr   */
+/*   Updated: 2023/08/01 10:27:43 by acarlott         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
+
+void	ft_odd_philo_manager(t_philo *philo)
+{
+	if (philo->id % 2 == 0)
+	{
+		printf("%lld %d %s\n", cur_time(philo), philo->id, "is thinking");
+		//ft_print(philo, THINK);
+		usleep(50000);
+	}
+	else if (philo->id == philo->data->nb_th \
+	&& philo->data->nb_th % 2 != 0 && philo->data->nb_th != 1)
+	{
+		printf("%lld %d %s\n", cur_time(philo), philo->id, "is thinking");
+		//ft_print(philo, THINK);
+		usleep(2000);
+	}
+}
 
 void	ft_print(t_philo *philo, int msg)
 {
@@ -43,7 +60,6 @@ void	ft_free(t_data *data)
 	i = -1;
 	while (++i < data->nb_th)
 		pthread_mutex_destroy(&data->fork[i]);
-	pthread_mutex_destroy(&data->write);
 	pthread_mutex_destroy(&data->exec);
 	pthread_mutex_destroy(&data->die);
 	free(data->locked);
