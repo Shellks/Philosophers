@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 20:54:15 by acarlott          #+#    #+#             */
-/*   Updated: 2023/08/03 16:23:09 by acarlott         ###   ########lyon.fr   */
+/*   Updated: 2023/08/03 16:28:31 by acarlott         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,6 @@ void    philo_life(t_philo *philo)
 		if (wait_fork(philo, philo->fork_r_id) == DIE)
 			break ;
 		if (philo_eat(philo) == DIE)
-			break ;
-		if (death_check(philo) == DIE)
 			break ;
 		unlock_fork(philo, philo->fork_l_id);
 		unlock_fork(philo, philo->fork_r_id);
