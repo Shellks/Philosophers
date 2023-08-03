@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:00:59 by acarlott          #+#    #+#             */
-/*   Updated: 2023/08/03 15:56:15 by acarlott         ###   ########lyon.fr   */
+/*   Updated: 2023/08/03 18:43:33 by acarlott         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,17 @@ static void	*routine(void *ph)
 	pthread_mutex_unlock(&philo->data->exec);
 	if (philo->data->max_eat == 0)
 		return (NULL);
-	ft_odd_philo_manager(philo);
+	if (philo->id % 2 != 0)
+	{
+		printf("%lld %d %s\n", cur_time(philo), philo->id, "is thinking");
+		usleep(50000);
+	}
+	else if (philo->id == philo->data->nb_th \
+	&& philo->data->nb_th % 2 != 0 && philo->data->nb_th != 1)
+	{
+		printf("%lld %d %s\n", cur_time(philo), philo->id, "is thinking");
+		usleep(1500);
+	}
 	philo_life(philo);
 	return (NULL);
 }

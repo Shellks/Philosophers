@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:23:45 by acarlott          #+#    #+#             */
-/*   Updated: 2023/07/28 17:53:05 by acarlott         ###   ########lyon.fr   */
+/*   Updated: 2023/08/03 18:42:55 by acarlott         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,6 @@ int	init_philo(t_data *data)
 		data->philo[i].fork_l_id = i;
 		data->philo[i].t_last_eat = 0;
 		data->philo[i].fork_r_id = (i + 1) % data->nb_th;
-//		printf("thread %d has fork %d at is right\n", data->philo[i].id ,data->philo[i].fork_r_id);
-//		printf("thread %d has fork %d at is left\n", data->philo[i].id ,data->philo[i].fork_l_id);
 	}
 	return (TRUE);
 }

@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 14:29:40 by acarlott          #+#    #+#             */
-/*   Updated: 2023/08/03 16:23:04 by acarlott         ###   ########lyon.fr   */
+/*   Updated: 2023/08/03 16:53:22 by acarlott         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,15 @@ void	ft_print(t_philo *philo, int msg)
 	char	str_sleep[12] = "is sleeping";
 	char	str_think[12] = "is thinking";
 	char	str_die[8] = "died";
-	pthread_mutex_lock(&philo->data->write);
+	pthread_mutex_lock(&philo->data->die);
 		if (philo->data->is_die != 1)
 		{		
 		if (msg == EAT)
-			printf("%lld %d %s\n", cur_time(philo), philo->id, str_eat);
-		else if (msg == FORK)
+		{
 			printf("%lld %d %s\n", cur_time(philo), philo->id, str_fork);
+			printf("%lld %d %s\n", cur_time(philo), philo->id, str_fork);
+			printf("%lld %d %s\n", cur_time(philo), philo->id, str_eat);
+		}
 		else if (msg == SLEEP)
 			printf("%lld %d %s\n", cur_time(philo), philo->id, str_sleep);
 		else if (msg == THINK)
@@ -48,7 +50,7 @@ void	ft_print(t_philo *philo, int msg)
 		else
 			printf("%lld %d %s\n", cur_time(philo), philo->id, str_die);
 		}
-	pthread_mutex_unlock(&philo->data->write);
+	pthread_mutex_unlock(&philo->data->die);
 }
 
 void	ft_free(t_data *data)

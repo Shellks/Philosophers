@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 18:39:55 by acarlott          #+#    #+#             */
-/*   Updated: 2023/08/03 16:23:30 by acarlott         ###   ########lyon.fr   */
+/*   Updated: 2023/08/03 18:10:50 by acarlott         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,14 @@ int	death_time_check(t_philo *philo)
 	return (ALIVE);
 }
 
-int	death_check(t_philo *philo)
-{
-	pthread_mutex_lock(&philo->data->die);
-	if (philo->data->is_die == 1)
-	{
-		pthread_mutex_unlock(&philo->data->die);
-		return (DIE);
-	}
-	pthread_mutex_unlock(&philo->data->die);
-	return (ALIVE);
-}
+// int	death_check(t_philo *philo)
+// {
+// 	pthread_mutex_lock(&philo->data->die);
+// 	if (philo->data->is_die == 1)
+// 	{
+// 		pthread_mutex_unlock(&philo->data->die);
+// 		return (DIE);
+// 	}
+// 	pthread_mutex_unlock(&philo->data->die);
+// 	return (ALIVE);
+// }
