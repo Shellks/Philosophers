@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 14:29:40 by acarlott          #+#    #+#             */
-/*   Updated: 2023/08/01 10:27:43 by acarlott         ###   ########lyon.fr   */
+/*   Updated: 2023/08/03 16:23:04 by acarlott         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,16 @@
 
 void	ft_odd_philo_manager(t_philo *philo)
 {
-	if (philo->id % 2 == 0)
+	if (philo->id % 2 != 0)
 	{
 		printf("%lld %d %s\n", cur_time(philo), philo->id, "is thinking");
-		//ft_print(philo, THINK);
 		usleep(50000);
 	}
 	else if (philo->id == philo->data->nb_th \
 	&& philo->data->nb_th % 2 != 0 && philo->data->nb_th != 1)
 	{
 		printf("%lld %d %s\n", cur_time(philo), philo->id, "is thinking");
-		//ft_print(philo, THINK);
-		usleep(2000);
+		usleep(1500);
 	}
 }
 

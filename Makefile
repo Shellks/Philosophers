@@ -6,13 +6,14 @@
 #    By: acarlott <acarlott@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/11 17:42:21 by acarlott          #+#    #+#              #
-#    Updated: 2023/08/01 10:49:03 by acarlott         ###   ########lyon.fr    #
+#    Updated: 2023/08/03 14:07:27 by acarlott         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 
-CFLAGS = -Wall -Wextra -Werror -pthread -o2
+CFLAGS = -Wall -Wextra -Werror -pthread -O2 
+#-fsanitize=thread
 CC = cc
 HEADER = ./include
 
