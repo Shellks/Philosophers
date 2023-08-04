@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:04:02 by acarlott          #+#    #+#             */
-/*   Updated: 2023/08/04 10:14:06 by acarlott         ###   ########lyon.fr   */
+/*   Updated: 2023/08/04 10:55:01 by acarlott         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,20 +63,20 @@ long long int	in_time(void);
 int				ft_isdigit(int c);
 long long int	cur_time(t_philo *p);
 void			ft_free(t_data *data);
-void			ft_destroy_fork(t_data *data);
 int				init_philo(t_data *data);
 int				ft_atoi(const char *str);
-void    		philo_life(t_philo *philo);
-int				death_time_check(t_philo *philo);
-int				death_check(t_philo *philo);
-int				wait_fork(t_philo *philo, int fork);
-void			unlock_fork(t_philo *philo, int fork);
 void			philosopher(t_data *data);
+void    		philo_life(t_philo *philo);
+int				death_check(t_philo *philo);
 int				main(int argc, char **argv);
+void			ft_destroy_fork(t_data *data);
+int				death_time_check(t_philo *philo);
 void			ft_print(t_philo *philo, int msg);
 int				ft_sleep(t_philo *philo, int time);
+int				wait_fork(t_philo *philo, int fork);
 void			death_checker(t_data *d, t_philo *p);
-int				parse(t_data *data, int argc, char **argv);
 void			ft_odd_philo_manager(t_philo *philo);
+void			unlock_fork(t_philo *philo, int fork);
+int				parse(t_data *data, int argc, char **argv);
 
 #endif
