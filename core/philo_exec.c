@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:00:59 by acarlott          #+#    #+#             */
-/*   Updated: 2023/08/04 10:54:06 by acarlott         ###   ########lyon.fr   */
+/*   Updated: 2023/08/04 12:47:47 by acarlott         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ void	philosopher(t_data *data)
 	pthread_mutex_lock(&data->exec);
 	while (++i < data->nb_th)
 	{
-		if (pthread_create(&data->thread[i], NULL, &routine, (void *)&data->philo[i]))
+		if (pthread_create(&data->thread[i], NULL, &routine, \
+		(void *)&data->philo[i]))
 		{
 			printf("Failed to create thread\n");
 			pthread_mutex_unlock(&data->exec);

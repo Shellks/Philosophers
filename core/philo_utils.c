@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 14:29:40 by acarlott          #+#    #+#             */
-/*   Updated: 2023/08/04 10:54:02 by acarlott         ###   ########lyon.fr   */
+/*   Updated: 2023/08/04 12:51:49 by acarlott         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,19 @@ void	ft_odd_philo_manager(t_philo *philo)
 
 void	ft_print(t_philo *philo, int msg)
 {
-	char	str_eat[10] = "is eating";
-	char	str_fork[17] = "has taken a fork";
-	char	str_sleep[12] = "is sleeping";
-	char	str_think[12] = "is thinking";
 	pthread_mutex_lock(&philo->data->die);
 	if (philo->data->is_die != 1)
 	{
 		if (msg == EAT)
 		{
-			printf("%lld %d %s\n", cur_time(philo), philo->id, str_fork);
-			printf("%lld %d %s\n", cur_time(philo), philo->id, str_fork);
-			printf("%lld %d %s\n", cur_time(philo), philo->id, str_eat);
+			printf("%lld %d has taken a fork\n", cur_time(philo), philo->id);
+			printf("%lld %d has taken a fork\n", cur_time(philo), philo->id);
+			printf("%lld %d is eating\n", cur_time(philo), philo->id);
 		}
 		else if (msg == SLEEP)
-			printf("%lld %d %s\n", cur_time(philo), philo->id, str_sleep);
+			printf("%lld %d is sleeping\n", cur_time(philo), philo->id);
 		else if (msg == THINK)
-			printf("%lld %d %s\n", cur_time(philo), philo->id, str_think);
+			printf("%lld %d is thinking\n", cur_time(philo), philo->id);
 	}
 	pthread_mutex_unlock(&philo->data->die);
 }
@@ -53,7 +49,7 @@ void	ft_print(t_philo *philo, int msg)
 void	ft_destroy_fork(t_data *data)
 {
 	int	i;
-	
+
 	i = -1;
 	while (++i < data->nb_th)
 		pthread_mutex_destroy(&data->fork[i]);

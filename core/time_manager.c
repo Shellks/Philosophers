@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 18:39:55 by acarlott          #+#    #+#             */
-/*   Updated: 2023/08/04 10:54:00 by acarlott         ###   ########lyon.fr   */
+/*   Updated: 2023/08/04 12:53:05 by acarlott         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ long long int	in_time(void)
 	unsigned long	s;
 	unsigned long	u;
 	unsigned long	res;
-	
+
 	gettimeofday(&time, NULL);
 	s = (time.tv_sec * 1000);
 	u = (time.tv_usec / 1000);

@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:08:13 by acarlott          #+#    #+#             */
-/*   Updated: 2023/08/04 10:54:10 by acarlott         ###   ########lyon.fr   */
+/*   Updated: 2023/08/04 12:52:28 by acarlott         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main(int argc, char **argv)
 {
 	t_data	data;
-	
+
 	if (parse(&data, argc, argv) == FALSE)
 		return (ERR_ARGS);
 	if (init_philo(&data) == FALSE)
@@ -24,4 +24,3 @@ int	main(int argc, char **argv)
 	ft_free_destroy(&data);
 	return (0);
 }
-

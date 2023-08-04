@@ -6,11 +6,11 @@
 /*   By: acarlott <acarlott@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 14:07:52 by acarlott          #+#    #+#             */
-/*   Updated: 2023/05/12 11:40:28 by acarlott         ###   ########lyon.fr   */
+/*   Updated: 2023/08/04 13:11:22 by acarlott         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/philo.h"
+#include "../../include/philo.h"
 
 static int	ft_check(int sign)
 {

@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:04:02 by acarlott          #+#    #+#             */
-/*   Updated: 2023/08/04 10:55:01 by acarlott         ###   ########lyon.fr   */
+/*   Updated: 2023/08/04 12:53:37 by acarlott         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,11 @@ typedef struct s_data
 long long int	in_time(void);
 int				ft_isdigit(int c);
 long long int	cur_time(t_philo *p);
-void			ft_free(t_data *data);
+void			ft_free_destroy(t_data *data);
 int				init_philo(t_data *data);
 int				ft_atoi(const char *str);
 void			philosopher(t_data *data);
-void    		philo_life(t_philo *philo);
+void			philo_life(t_philo *philo);
 int				death_check(t_philo *philo);
 int				main(int argc, char **argv);
 void			ft_destroy_fork(t_data *data);

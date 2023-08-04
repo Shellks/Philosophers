@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:23:45 by acarlott          #+#    #+#             */
-/*   Updated: 2023/08/04 10:54:05 by acarlott         ###   ########lyon.fr   */
+/*   Updated: 2023/08/04 12:52:12 by acarlott         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ static int	init_malloc(t_data *data)
 	}
 	return (TRUE);
 }
+
 static int	init_mutex(t_data *data)
 {
 	int	i;

@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 20:54:15 by acarlott          #+#    #+#             */
-/*   Updated: 2023/08/04 10:54:03 by acarlott         ###   ########lyon.fr   */
+/*   Updated: 2023/08/04 12:52:52 by acarlott         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static inline int	philo_eat(t_philo *philo)
 		return (DIE);
 	return (ALIVE);
 }
+
 static inline int	philo_sleep_think(t_philo *philo)
 {
 	ft_print(philo, SLEEP);
@@ -45,10 +46,9 @@ static inline int	philo_sleep_think(t_philo *philo)
 	return (ALIVE);
 }
 
-
-void    philo_life(t_philo *philo)
+void	philo_life(t_philo *philo)
 {
-    while (philo->nb_eat != philo->data->max_eat)
+	while (philo->nb_eat != philo->data->max_eat)
 	{
 		if (death_time_check(philo) == DIE)
 			break ;
