@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:00:59 by acarlott          #+#    #+#             */
-/*   Updated: 2023/08/03 18:43:33 by acarlott         ###   ########lyon.fr   */
+/*   Updated: 2023/08/04 09:27:54 by acarlott         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	philosopher(t_data *data)
 	{
 		if (pthread_create(&data->thread[i], NULL, &routine, (void *)&data->philo[i]))
 		{
-			write(STDERR_FILENO, "Failed to create thread\n", 24);
+			printf("Failed to create thread\n");
 			pthread_mutex_unlock(&data->exec);
 			return ;
 		}
@@ -58,7 +58,7 @@ void	philosopher(t_data *data)
 	{
 		if (pthread_join(data->thread[i], NULL) != 0)
 		{
-			write(STDERR_FILENO, "Failed to join thread\n", 22);
+			printf("Failed to join thread\n");
 			return ;
 		}
 	}

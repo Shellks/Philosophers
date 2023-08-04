@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 14:29:40 by acarlott          #+#    #+#             */
-/*   Updated: 2023/08/03 16:53:22 by acarlott         ###   ########lyon.fr   */
+/*   Updated: 2023/08/04 10:24:17 by acarlott         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,9 @@ void	ft_print(t_philo *philo, int msg)
 	char	str_fork[17] = "has taken a fork";
 	char	str_sleep[12] = "is sleeping";
 	char	str_think[12] = "is thinking";
-	char	str_die[8] = "died";
 	pthread_mutex_lock(&philo->data->die);
-		if (philo->data->is_die != 1)
-		{		
+	if (philo->data->is_die != 1)
+	{
 		if (msg == EAT)
 		{
 			printf("%lld %d %s\n", cur_time(philo), philo->id, str_fork);
@@ -47,19 +46,22 @@ void	ft_print(t_philo *philo, int msg)
 			printf("%lld %d %s\n", cur_time(philo), philo->id, str_sleep);
 		else if (msg == THINK)
 			printf("%lld %d %s\n", cur_time(philo), philo->id, str_think);
-		else
-			printf("%lld %d %s\n", cur_time(philo), philo->id, str_die);
-		}
+	}
 	pthread_mutex_unlock(&philo->data->die);
 }
 
-void	ft_free(t_data *data)
+void	ft_destroy_fork(t_data *data)
 {
 	int	i;
 	
 	i = -1;
 	while (++i < data->nb_th)
 		pthread_mutex_destroy(&data->fork[i]);
+}
+
+void	ft_free_destroy(t_data *data)
+{
+	ft_destroy_fork(data);
 	pthread_mutex_destroy(&data->exec);
 	pthread_mutex_destroy(&data->die);
 	free(data->locked);

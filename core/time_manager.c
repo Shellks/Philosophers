@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 18:39:55 by acarlott          #+#    #+#             */
-/*   Updated: 2023/08/03 18:10:50 by acarlott         ###   ########lyon.fr   */
+/*   Updated: 2023/08/04 10:25:30 by acarlott         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ int	ft_sleep(t_philo *philo, int time)
 			return (DIE);
 		usleep(250);
 	}
-	if (death_time_check(philo) == DIE)
-		return (DIE);
 	return (ALIVE);
 }
 
@@ -53,9 +51,7 @@ int	death_time_check(t_philo *philo)
 	if ((cur_time(philo) - philo->t_last_eat >= philo->data->t_die) && \
 	philo->data->is_die == 0)
 	{
-		usleep(1500);
 		philo->data->is_die = 1;
-		//ft_print(philo, DIE);
 		printf("%lld %d %s\n", cur_time(philo), philo->id, "died");
 		pthread_mutex_unlock(&philo->data->die);
 		return (DIE);
@@ -68,15 +64,3 @@ int	death_time_check(t_philo *philo)
 	pthread_mutex_unlock(&philo->data->die);
 	return (ALIVE);
 }
-
-// int	death_check(t_philo *philo)
-// {
-// 	pthread_mutex_lock(&philo->data->die);
-// 	if (philo->data->is_die == 1)
-// 	{
-// 		pthread_mutex_unlock(&philo->data->die);
-// 		return (DIE);
-// 	}
-// 	pthread_mutex_unlock(&philo->data->die);
-// 	return (ALIVE);
-// }

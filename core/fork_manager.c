@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 18:41:39 by acarlott          #+#    #+#             */
-/*   Updated: 2023/08/03 18:46:44 by acarlott         ###   ########lyon.fr   */
+/*   Updated: 2023/08/04 09:55:35 by acarlott         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,8 @@ int	wait_fork(t_philo *philo, int fork)
 {
 	while (check_fork(philo, fork) != TRUE)
 	{
-		//if (philo->nb_eat != 0)
 		if (death_time_check(philo) == DIE)
 			return (DIE);
-		// if (death_check(philo) == DIE)
-		// 	return (DIE);
 		usleep(250);
 	}
 	if (philo->data->nb_th == 1)

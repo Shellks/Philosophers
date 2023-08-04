@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:23:45 by acarlott          #+#    #+#             */
-/*   Updated: 2023/08/03 18:42:55 by acarlott         ###   ########lyon.fr   */
+/*   Updated: 2023/08/04 10:15:53 by acarlott         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	init_malloc(t_data *data)
 		free(data->philo);
 		return (FALSE);
 	}
-	data->fork = malloc(sizeof(pthread_mutex_t) * data->nb_th );
+	data->fork = malloc(sizeof(pthread_mutex_t) * data->nb_th);
 	if (!data->fork)
 	{
 		write(1, "Error with malloc\n", 18);
@@ -49,9 +49,16 @@ static int	init_mutex(t_data *data)
 		if (pthread_mutex_init(&(data->fork[i]), NULL) != 0)
 			return (FALSE);
 	if (pthread_mutex_init(&(data->exec), NULL) != 0)
+	{
+		ft_destroy_fork(data);
 		return (FALSE);
+	}
 	if (pthread_mutex_init(&(data->die), NULL) != 0)
+	{
+		ft_destroy_fork(data);
+		pthread_mutex_destroy(&data->exec);
 		return (FALSE);
+	}
 	return (TRUE);
 }
 
@@ -64,6 +71,10 @@ int	init_philo(t_data *data)
 		return (FALSE);
 	if (init_mutex(data) == FALSE)
 	{
+		free(data->locked);
+		free(data->philo);
+		free(data->thread);
+		free(data->fork);
 		write(1, "Error with mutex initialising\n", 31);
 		return (FALSE);
 	}
